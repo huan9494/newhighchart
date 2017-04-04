@@ -1,0 +1,2 @@
+module ExpenditureCategoriesHelper
+end

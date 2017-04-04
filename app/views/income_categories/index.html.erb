@@ -1,0 +1,30 @@
+<p id="notice"><%= flash[:notice] %></p>
+
+<div class = "well" id = "course-list-header">
+  <b>INCOME_CATEGORY</b>
+  <a href="<%= new_income_category_path %>" class="btn btn-info navbar-right" role="button">New Income_Category</a>
+</div>
+
+
+<table class = "table table-bordered table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created_at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @income_categories.each do |income_category| %>
+      <tr>
+        <td><%= income_category.name %></td>
+        <td><%= income_category.created_at %></td>
+        <td>
+        <span><%= link_to 'Edit', edit_income_category_path(income_category) %></span> - 
+        <span><%= link_to 'Delete', income_category, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

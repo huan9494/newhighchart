@@ -1,0 +1,30 @@
+<p id="notice"><%= flash[:notice] %></p>
+
+<div class = "well" id = "course-list-header">
+  <b>EXPENSE_CATEGORY</b>
+  <a href="<%= new_expenditure_category_path %>" class="btn btn-info navbar-right" role="button">New Expense_Category</a>
+</div>
+
+
+<table class = "table table-bordered table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created_at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expenditure_categories.each do |expenditure_category| %>
+      <tr>
+        <td><%= expenditure_category.name %></td>
+        <td><%= expenditure_category.created_at %></td>
+        <td>
+        <span><%= link_to 'Edit', edit_expenditure_category_path(expenditure_category) %></span> - 
+        <span><%= link_to 'Delete', expenditure_category, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

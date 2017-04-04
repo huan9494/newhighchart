@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  income: one
+  income_category: one
+
+two:
+  income: two
+  income_category: two

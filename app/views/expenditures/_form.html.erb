@@ -1,0 +1,36 @@
+<%= form_for(expenditure) do |f| %>
+  <% if expenditure.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(expenditure.errors.count, "error") %> prohibited this expenditure from being saved:</h2>
+
+      <ul>
+      <% expenditure.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :amount %> </br>
+    <%= f.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :issued_at %> </br>
+    <%= f.date_select :issued_at %>
+  </div>
+
+
+  <div class="field">
+    <% current_user.expenditure_categories.all.each do |expenditure_category| %>
+      <%= check_box_tag "expenditure[expenditure_category_ids][]", expenditure_category.id, @expenditure.expenditure_categories.include?(expenditure_category) %>
+        <%= expenditure_category.name %> <br/>
+    <% end %>
+  </div>
+
+  <%= f.hidden_field :User_id, value: current_user.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
