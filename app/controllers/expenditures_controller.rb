@@ -1,5 +1,6 @@
 
 class ExpendituresController < ApplicationController
+  before_action :authenticate_user!
   include TimeHelper
   include IncomesHelper
   include ExpendituresHelper

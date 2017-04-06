@@ -1,6 +1,9 @@
 
 class IncomesController < ApplicationController
 
+  before_action :authenticate_user!
+
+
   def index
     @incomes = current_user.incomes.all
   end

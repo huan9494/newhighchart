@@ -10,7 +10,7 @@ module ExpendituresHelper
 	def months_expenditures(arr)
 		array = []
 		arr.each do |ar|
-			array.push(Expenditure.where("? < issued_at AND issued_at < ?",
+			array.push(Expenditure.where(User_id: current_user.id).where("? < issued_at AND issued_at < ?",
 		first_day_of_month(ar.to_i), last_day_of_month(ar.to_i)).sum(:amount))
 		end
 		return array

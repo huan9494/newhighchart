@@ -1,4 +1,5 @@
 class ExpenditureCategoriesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @expenditure_categories = current_user.expenditure_categories.all
   end

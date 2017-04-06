@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'dashboard/welcome'
 
-  	devise_for :users
+  	devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   	resources :incomes
   	resources :income_categories
   	resources :expenditures

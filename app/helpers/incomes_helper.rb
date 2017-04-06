@@ -10,7 +10,7 @@ module IncomesHelper
 	def months_incomes(arr)
 		array = []
 		arr.each do |ar|
-			array.push(Income.where("? < issued_at AND issued_at < ?",
+			array.push(Income.where(User_id: current_user.id).where("? < issued_at AND issued_at < ?",
 		first_day_of_month(ar.to_i), last_day_of_month(ar.to_i)).sum(:amount))
 		end
 		return array
