@@ -2,29 +2,38 @@
 
 <div class = "well" id = "course-list-header">
   <b>EXPENSE_CATEGORY</b>
-  <a href="<%= new_expenditure_category_path %>" class="btn btn-info navbar-right" role="button">New Expense_Category</a>
+  <button class="btn btn-info navbar-right" id="btn_expense_categories">New Expense_Category</button>
 </div>
 
+<div id="expense_categories">
+  <div class="col-md-9">
+    <div class = "scrollable" id="table_expense_categories" style="width:100%; max-height:400px; overflow:auto">
+      
+      <table class = "table table-bordered table-hover table-responsive">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Created_at</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
 
-<table class = "table table-bordered table-hover table-responsive">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Created_at</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @expenditure_categories.each do |expenditure_category| %>
-      <tr>
-        <td><%= expenditure_category.name %></td>
-        <td><%= expenditure_category.created_at %></td>
-        <td>
-        <span><%= link_to 'Edit', edit_expenditure_category_path(expenditure_category) %></span> - 
-        <span><%= link_to 'Delete', expenditure_category, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @expenditure_categories.each do |expenditure_category| %>
+            <tr>
+              <td><%= expenditure_category.name %></td>
+              <td><%= expenditure_category.created_at %></td>
+              <td>
+              <span><%= link_to 'Edit', edit_expenditure_category_path(expenditure_category) %></span> - 
+              <span><%= link_to 'Delete', expenditure_category, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+      <div class="col-md-3 form" id="form_expense_categories">
+        <%= render 'form', expenditure_category: @expenditure_category %>
+      </div>
+</div>

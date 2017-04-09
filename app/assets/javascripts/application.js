@@ -11,8 +11,36 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+//= require jquery.turbolinks
+//= require jquery_ujs 
 //= require turbolinks
 //= require highcharts/highcharts
 //= require bootstrap-sprockets
 //= require_tree .
+
+$( document ).on('turbolinks:load', function() {
+
+	$('#form_expense').hide();
+
+  	$('#btn_expense').on('click', function(){
+		$('#form_expense').slideToggle(200);
+	});
+// --------
+	$('#form_expense_categories').hide();
+	
+  	$('#btn_expense_categories').on('click', function(){
+		$('#form_expense_categories').slideToggle(200);
+	});
+// ----------
+	$('#form_income').hide();
+	
+  	$('#btn_income').on('click', function(){
+		$('#form_income').slideToggle(200);
+	});
+// ----------
+	$('#form_income_categories').hide();
+	
+  	$('#btn_income_categories').on('click', function(){
+		$('#form_income_categories').slideToggle(200);
+	});
+});

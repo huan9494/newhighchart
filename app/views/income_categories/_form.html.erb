@@ -1,4 +1,4 @@
-<%= form_for(income_category) do |f| %>
+<%= form_for(income_category, remote: true) do |f| %>
   <% if income_category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(income_category.errors.count, "error") %> prohibited this income_category from being saved:</h2>
@@ -10,12 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+<br>
   <div class="field">
     <%= f.label :name %> </br>
     <%= f.text_field :name %>
   </div>
-
+<br>
   <%= f.hidden_field :User_id, value: current_user.id %>
   <div class="actions">
     <%= f.submit %>

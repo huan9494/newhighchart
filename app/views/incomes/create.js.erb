@@ -1,0 +1,5 @@
+alert("You spend too much!");
+// window.location.reload();
+$("#income").html("<%= escape_javascript(render 'income') %>");
+$("#income_amount").val("");
+$(".checkbox_income").prop("checked", false);

@@ -1,4 +1,4 @@
-<%= form_for(income) do |f|%>
+<%= form_for(income, remote: true) do |f|%>
   <% if income.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(income.errors.count, "error") %> prohibited this income from being saved:</h2>
@@ -10,25 +10,24 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :amount %> </br>
-    <%= f.text_field :amount %>
+    <%= f.text_field :amount, id: "expense_amount" %>
   </div>
-
+<br>
   <div class="field">
     <%= f.label :issued_at %> </br>
     <%= f.date_select :issued_at %>
   </div>
-
+<br>
 
   <div class="field">
     <% current_user.income_categories.all.each do |income_category| %>
-      <%= check_box_tag "income[income_category_ids][]", income_category.id, @income.income_categories.include?(income_category) %>
+      <%= check_box_tag "income[income_category_ids][]", income_category.id, @income.income_categories.include?(income_category), class: "checkbox_income" %>
       <%= income_category.name %><br/>
     <% end %>
   </div>
-
+<br>
   <%= f.hidden_field :User_id, value: current_user.id %>
   <div class="actions">
     <%= f.submit %>

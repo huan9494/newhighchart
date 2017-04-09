@@ -1,1 +1,5 @@
-alert("You spend too much!")
+alert("You spend too much!");
+// window.location.reload();
+$("#expense").html("<%= escape_javascript(render 'expense') %>");
+$("#expense_amount").val("");
+$(".checkbox_expense").prop("checked", false);

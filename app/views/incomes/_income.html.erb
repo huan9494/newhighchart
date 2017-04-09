@@ -1,13 +1,4 @@
-<p id="notice"><%= flash[:notice] %></p>
 
-<div class = "well" id = "course-list-header">
-  <b>INCOME</b>
-  <button class="btn btn-info navbar-right" id="btn_income">New_Income</button>
-</div>
-
-
-<div id="income">
-  
 <div class="col-md-9">
   <div class = "scrollable" id="table_income" style="width:100%; max-height:400px; overflow:auto">
       <table class = "table table-bordered table-hover table-responsive">
@@ -42,5 +33,4 @@
 </div>
 <div class="col-md-3 form" id="form_income">
   <%= render 'form', income: @income %>
-</div>
 </div>

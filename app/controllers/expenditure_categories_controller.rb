@@ -2,6 +2,7 @@ class ExpenditureCategoriesController < ApplicationController
   before_action :authenticate_user!
   def index
     @expenditure_categories = current_user.expenditure_categories.all
+    @expenditure_category = ExpenditureCategory.new
   end
 
   def new
@@ -12,10 +13,14 @@ class ExpenditureCategoriesController < ApplicationController
   end
 
   def create
+    @expenditure_categories = current_user.expenditure_categories.all
     @expenditure_category = ExpenditureCategory.new(expenditure_category_params)
+
     if @expenditure_category.save
-      flash[:notice] = 'Add new expenditure_category successfully :))'
-      redirect_to expenditure_categories_path
+      respond_to do |format|
+          # format.html{ redirect_to expenditures_path, notice: "Add new expense successfully"}
+          format.js #{ render :js => "window.location = '/expenditures' " }
+        end
     else
       flash[:notice] = 'Something went wrong :(('
       render 'new'

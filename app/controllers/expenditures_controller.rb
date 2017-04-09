@@ -5,35 +5,32 @@ class ExpendituresController < ApplicationController
   include IncomesHelper
   include ExpendituresHelper
 
-def index
+  def index
     @expenditures = current_user.expenditures.all
-  end
-
-  def new
     @expenditure = Expenditure.new
   end
+
+  # def new
+  #   @expenditure = Expenditure.new
+  # end
   def edit
     @expenditure = current_user.expenditures.find(params[:id])
   end
 
   def create
+    @expenditures = current_user.expenditures.all
     @expenditure = Expenditure.new(expenditure_params)
     
-    # current_month = Time.now.month
-    # (0..months_incomes((1..current_month).to_a).length - 1).each do |i|
-    #   if months_incomes((1..current_month).to_a)[i] < months_expenditures((1..current_month).to_a)[i]
-    #     respond_to do |format|
-    #       format.html{ redirect_to expenditures_path, notice: "Add new expense successfully :))"}
-    #       format.json{ head :no_content}
-    #       format.js
-    #     end
-    #   end
-    # end
-
 
     if @expenditure.save
-      flash[:notice] = 'Add new expense successfully :))'
-      redirect_to expenditures_path
+      # flash[:notice] = 'Add new expense successfully :))'
+
+      current_month = Time.now.month
+
+        respond_to do |format|
+          # format.html{ redirect_to expenditures_path, notice: "Add new expense successfully"}
+          format.js #{ render :js => "window.location = '/expenditures' " }
+        end
     else
       flash[:notice] = 'Something went wrong :(('
       render 'new'

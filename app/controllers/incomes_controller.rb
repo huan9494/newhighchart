@@ -6,6 +6,7 @@ class IncomesController < ApplicationController
 
   def index
     @incomes = current_user.incomes.all
+    @income = Income.new
   end
 
   def new
@@ -17,11 +18,14 @@ class IncomesController < ApplicationController
   end
 
   def create
+    @incomes = current_user.incomes.all
     @income = Income.new(income_params)
 
     if @income.save
-      flash[:notice] = 'Add new income successfully :))'
-      redirect_to incomes_path
+      respond_to do |format|
+          # format.html{ redirect_to expenditures_path, notice: "Add new expense successfully"}
+          format.js #{ render :js => "window.location = '/expenditures' " }
+        end
     else
       flash[:notice] = 'Something went wrong :(('
       render 'new'
@@ -49,6 +53,7 @@ class IncomesController < ApplicationController
   end
 
   private
+  
   def income_params
     params.require(:income).permit(:amount, :User_id, :issued_at, income_category_ids: [])
   end

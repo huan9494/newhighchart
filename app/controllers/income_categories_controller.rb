@@ -4,6 +4,7 @@ class IncomeCategoriesController < ApplicationController
   
   def index
     @income_categories = current_user.income_categories.all
+    @income_category = IncomeCategory.new
   end
 
   def new
@@ -15,9 +16,12 @@ class IncomeCategoriesController < ApplicationController
 
   def create
     @income_category = IncomeCategory.new(income_category_params)
+    @income_categories = current_user.income_categories.all
     if @income_category.save
-      flash[:notice] = 'Add new income_category successfully :))'
-      redirect_to income_categories_path
+      respond_to do |format|
+          # format.html{ redirect_to expenditures_path, notice: "Add new expense successfully"}
+          format.js #{ render :js => "window.location = '/expenditures' " }
+        end
     else
       flash[:notice] = 'Something went wrong :(('
       render 'new'
