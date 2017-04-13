@@ -14,10 +14,10 @@ ActiveRecord::Schema.define(version: 20170406071717) do
 
   create_table "expenditure_categories", force: :cascade do |t|
     t.string   "name"
-    t.integer  "User_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["User_id"], name: "index_expenditure_categories_on_User_id"
+    t.index ["user_id"], name: "index_expenditure_categories_on_user_id"
   end
 
   create_table "expenditure_category_joins", force: :cascade do |t|
@@ -31,22 +31,22 @@ ActiveRecord::Schema.define(version: 20170406071717) do
 
   create_table "expenditures", force: :cascade do |t|
     t.integer  "amount"
-    t.integer  "User_id"
+    t.integer  "user_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "expenditure_category_id"
     t.string   "category"
     t.datetime "issued_at"
-    t.index ["User_id"], name: "index_expenditures_on_User_id"
+    t.index ["user_id"], name: "index_expenditures_on_user_id"
     t.index ["expenditure_category_id"], name: "index_expenditures_on_expenditure_category_id"
   end
 
   create_table "income_categories", force: :cascade do |t|
     t.string   "name"
-    t.integer  "User_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["User_id"], name: "index_income_categories_on_User_id"
+    t.index ["user_id"], name: "index_income_categories_on_user_id"
   end
 
   create_table "income_category_joins", force: :cascade do |t|
@@ -60,13 +60,13 @@ ActiveRecord::Schema.define(version: 20170406071717) do
 
   create_table "incomes", force: :cascade do |t|
     t.integer  "amount"
-    t.integer  "User_id"
+    t.integer  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "income_category_id"
     t.string   "category"
     t.datetime "issued_at"
-    t.index ["User_id"], name: "index_incomes_on_User_id"
+    t.index ["user_id"], name: "index_incomes_on_user_id"
     t.index ["income_category_id"], name: "index_incomes_on_income_category_id"
   end
 
