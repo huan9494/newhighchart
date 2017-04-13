@@ -9,6 +9,7 @@ class ExpenditureCategoriesController < ApplicationController
     @expenditure_category = ExpenditureCategory.new
   end
   def edit
+    @expenditure_categories = current_user.expenditure_categories.all
     @expenditure_category = current_user.expenditure_categories.find(params[:id])
   end
 
@@ -28,6 +29,7 @@ class ExpenditureCategoriesController < ApplicationController
   end
 
   def update
+    @expenditure_categories = current_user.expenditure_categories.all
     @expenditure_category = current_user.expenditure_categories.find(params[:id])
     if @expenditure_category.update(expenditure_category_params)
       redirect_to expenditure_categories_path
@@ -37,6 +39,7 @@ class ExpenditureCategoriesController < ApplicationController
   end
 
   def destroy
+    @expenditure_categories = current_user.expenditure_categories.all
     @expenditure_category = current_user.expenditure_categories.find(params[:id])
     @expenditure_category.destroy
     respond_to do |format|

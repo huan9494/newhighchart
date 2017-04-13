@@ -17,7 +17,7 @@
         <td><%= expenditure_category.name %></td>
         <td><%= expenditure_category.created_at %></td>
         <td>
-        <span><%= link_to 'Edit', edit_expenditure_category_path(expenditure_category) %></span> - 
+        <span><%= link_to 'Edit', edit_expenditure_category_path(expenditure_category), remote: true %></span> - 
         <span><%= link_to 'Delete', expenditure_category, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>

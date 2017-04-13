@@ -11,6 +11,7 @@ class IncomeCategoriesController < ApplicationController
     @income_category = IncomeCategory.new
   end
   def edit
+    @income_categories = current_user.income_categories.all
     @income_category = current_user.income_categories.find(params[:id])
   end
 
@@ -29,6 +30,7 @@ class IncomeCategoriesController < ApplicationController
   end
 
   def update
+    @income_categories = current_user.income_categories.all
     @income_category = current_user.income_categories.find(params[:id])
     if @income_category.update(income_category_params)
       redirect_to income_categories_path
@@ -38,6 +40,7 @@ class IncomeCategoriesController < ApplicationController
   end
 
   def destroy
+    @income_categories = current_user.income_categories.all
     @income_category = current_user.income_categories.find(params[:id])
     @income_category.destroy
     respond_to do |format|

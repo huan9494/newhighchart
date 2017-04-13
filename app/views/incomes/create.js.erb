@@ -1,5 +1,6 @@
-alert("You spend too much!");
-// window.location.reload();
-$("#income").html("<%= escape_javascript(render 'income') %>");
-$("#income_amount").val("");
-$(".checkbox_income").prop("checked", false);
+if (<%=@income_reference%> == 1) {alert("You spend too much!");}
+window.location.reload();
+// alert("You spend too much!");
+// $("#income").html("<%= escape_javascript(render 'income') %>");
+// $("#income_amount").val("");
+// $(".checkbox_income").prop("checked", false);

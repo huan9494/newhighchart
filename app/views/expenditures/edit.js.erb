@@ -1,0 +1,2 @@
+$('#form_expense').show();
+$("#expense").html("<%= escape_javascript(render :partial => 'expense', :locals => {:expenditure => @expenditure}) %>");

@@ -1,0 +1,4 @@
+$("#expense").html("<%= escape_javascript(render :partial => 'expense') %>");
+$('#form_expense').hide();
+$("#expense_amount").val("");
+$(".checkbox_expense").prop("checked", false);

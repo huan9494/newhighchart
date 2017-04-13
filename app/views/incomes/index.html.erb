@@ -31,8 +31,8 @@
         </td>
         <td><%= income.issued_at %></td>
         <td>
-        <span><%= link_to 'Edit', edit_income_path(income) %></span> - 
-        <span><%= link_to 'Delete', income, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <span class="edit"><%= link_to 'Edit', edit_income_path(income), remote: true %></span> - 
+        <span class="delete"><%= link_to 'Delete', income, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

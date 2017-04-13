@@ -43,4 +43,5 @@ $( document ).on('turbolinks:load', function() {
   	$('#btn_income_categories').on('click', function(){
 		$('#form_income_categories').slideToggle(200);
 	});
+
 });

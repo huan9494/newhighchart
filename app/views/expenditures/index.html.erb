@@ -30,8 +30,8 @@
         </td>
         <td><%= expenditure.issued_at %></td>
         <td>
-        <span><%= link_to 'Edit', edit_expenditure_path(expenditure) %></span> - 
-        <span><%= link_to 'Delete', expenditure, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <span class="edit"><%= link_to 'Edit', edit_expenditure_path(expenditure), remote: true %></span> - 
+        <span class="delete"><%= link_to 'Delete', expenditure, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
         </td>
       </tr>
     <% end %>

@@ -16,7 +16,7 @@
         <td><%= income_category.name %></td>
         <td><%= income_category.created_at %></td>
         <td>
-        <span><%= link_to 'Edit', edit_income_category_path(income_category) %></span> - 
+        <span><%= link_to 'Edit', edit_income_category_path(income_category), remote: true %></span> - 
         <span><%= link_to 'Delete', income_category, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
