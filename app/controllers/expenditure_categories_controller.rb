@@ -50,6 +50,6 @@ class ExpenditureCategoriesController < ApplicationController
 
   private
   def expenditure_category_params
-    params.require(:expenditure_category).permit(:name, :User_id)
+    params.require(:expenditure_category).permit(:name, :user_id)
   end
 end

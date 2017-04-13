@@ -72,6 +72,6 @@ class IncomesController < ApplicationController
   private
   
   def income_params
-    params.require(:income).permit(:amount, :User_id, :issued_at, income_category_ids: [])
+    params.require(:income).permit(:amount, :user_id, :issued_at, income_category_ids: [])
   end
 end

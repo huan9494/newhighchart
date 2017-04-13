@@ -51,6 +51,6 @@ class IncomeCategoriesController < ApplicationController
 
   private
   def income_category_params
-    params.require(:income_category).permit(:name, :User_id)
+    params.require(:income_category).permit(:name, :user_id)
   end
 end

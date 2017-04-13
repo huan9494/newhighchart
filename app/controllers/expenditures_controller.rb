@@ -71,6 +71,6 @@ class ExpendituresController < ApplicationController
 
   private
   def expenditure_params
-    params.require(:expenditure).permit(:amount, :User_id, :issued_at, expenditure_category_ids: [])
+    params.require(:expenditure).permit(:amount, :user_id, :issued_at, expenditure_category_ids: [])
   end
 end
