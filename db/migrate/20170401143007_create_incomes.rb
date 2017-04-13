@@ -6,5 +6,6 @@ class CreateIncomes < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_foreign_key :incomes, :users, column: :User_id
   end
 end

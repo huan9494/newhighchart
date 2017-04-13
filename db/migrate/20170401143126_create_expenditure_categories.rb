@@ -6,5 +6,6 @@ class CreateExpenditureCategories < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_foreign_key :expenditure_categories, :users, column: :User_id
   end
 end

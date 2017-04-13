@@ -6,5 +6,6 @@ class CreateIncomeCategories < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_foreign_key :income_categories, :users, column: :User_id
   end
 end
