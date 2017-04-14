@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20170406071717) do
     t.integer  "expenditure_category_id"
     t.string   "category"
     t.datetime "issued_at"
-    t.index ["user_id"], name: "index_expenditures_on_user_id"
     t.index ["expenditure_category_id"], name: "index_expenditures_on_expenditure_category_id"
+    t.index ["user_id"], name: "index_expenditures_on_user_id"
   end
 
   create_table "income_categories", force: :cascade do |t|
@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 20170406071717) do
     t.integer  "income_category_id"
     t.string   "category"
     t.datetime "issued_at"
-    t.index ["user_id"], name: "index_incomes_on_user_id"
     t.index ["income_category_id"], name: "index_incomes_on_income_category_id"
+    t.index ["user_id"], name: "index_incomes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
