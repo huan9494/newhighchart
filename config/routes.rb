@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'dashboard/graph'
   get 'dashboard/piechart'
+  get 'dashboard/chart'
+  post 'dashboard/chart'
   post 'dashboard/piechart'
 
 
@@ -11,5 +13,5 @@ Rails.application.routes.draw do
   	resources :expenditures
   	resources :expenditure_categories
 
-  	root 'dashboard#graph'
+  	root 'dashboard#chart'
 end

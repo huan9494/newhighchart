@@ -1,0 +1,7 @@
+
+if (<%= params[:month_select] == "All"%> ){
+	$("#chart").html("<%= j render :partial => 'graph' %>")
+}else
+{
+	$("#chart").html("<%= j render :partial => 'piechart' %>");
+}

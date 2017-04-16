@@ -5,7 +5,8 @@ class DashboardController < ApplicationController
 	include IncomesHelper
   	include ExpendituresHelper
 
-	def graph
+
+	def chart
 		current_month = Time.now.month
 
 		@chart = LazyHighCharts::HighChart.new('graph') do |f|
@@ -18,10 +19,8 @@ class DashboardController < ApplicationController
 	      f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
 	      f.chart({defaultSeriesType: "column"})
 	    end
-	end
 
-	def piechart
-      	@incomes_chart = LazyHighCharts::HighChart.new('pie') do |f|
+	    @incomes_chart = LazyHighCharts::HighChart.new('pie') do |f|
 	        f.title(text: "Your Incomes in #{params[:month_select]}") ##{params[:month]}, #{params[:year]}
 	        f.series(name: "Incomes", data: income_data_piechart(convert_namemonth_to_number))
 
@@ -36,6 +35,9 @@ class DashboardController < ApplicationController
 	        f.legend(align: 'right', verticalAlign: 'top', y: 575, x: -50, layout: 'vertical')
 	        f.chart({defaultSeriesType: "pie"})
     	end
+
+    	@income_reference = income_data_piechart(convert_namemonth_to_number)
+		@expense_reference = expense_data_piechart(convert_namemonth_to_number)
 
 	end
 

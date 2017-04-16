@@ -1,0 +1,16 @@
+<div class="form-group">
+	<%= form_tag(dashboard_chart_path, remote: true) do %>
+		<%= label_tag "Select month" %>
+		<br>
+		<div class="btn-group">
+			<%= select_tag "month_select", options_for_select(this_year_months.unshift("All") ), class: "form-control" %>
+		</div>
+		<div class="btn-group">
+			<%= submit_tag "GET", class: "btn btn-primary" %>
+		</div>
+	<% end %>
+</div>
+<div id="chart">
+	<%= high_chart("dashboard_graph", @chart) %>
+</div>
+
