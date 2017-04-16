@@ -10,7 +10,9 @@
   
 <div class="col-md-9">
   <div class = "scrollable" id="table_income" style="width:100%; max-height:400px; overflow:auto; background-color: white;">
-      <table class = "table table-bordered table-hover table-responsive text-center">
+
+<%= form_for(@income, remote: true) do |f|%>
+<table class = "table table-bordered table-hover table-responsive text-center">
   <thead>
     <tr>
       <th class="text-center">Amount</th>
@@ -22,7 +24,6 @@
 
   <tbody>
     <% @incomes.each do |income| %>
-  <%= form_for(@income, remote: true) do |f|%>
       <tr id=  "incomes-<%= income.id %>"" >
         <td><%= income.amount %></td>
         <td>
@@ -36,11 +37,13 @@
         <span class="delete"><%= link_to 'Delete', income, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: " btn btn-primary" %>
         </td>
       </tr>
-<% end %>
     <% end %>
     
   </tbody>
 </table>
+<% end %>
+
+
   </div>
 </div>
 <div class="col-md-3 form" id="form_income">
