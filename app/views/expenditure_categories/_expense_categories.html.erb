@@ -1,13 +1,13 @@
 
 <div class="col-md-9">
-  <div class = "scrollable" id="table_expense_categories" style="width:100%; max-height:400px; overflow:auto">
+  <div class = "scrollable" id="table_expense_categories" style="width:100%; max-height:400px; overflow:auto; background-color: white">
     
-<table class = "table table-bordered table-hover table-responsive">
+<table class = "table table-bordered table-hover table-responsive text-center">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Created_at</th>
-      <th>Actions</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Created_at</th>
+      <th class="text-center">Actions</th>
     </tr>
   </thead>
 
@@ -17,8 +17,8 @@
         <td><%= expenditure_category.name %></td>
         <td><%= expenditure_category.created_at %></td>
         <td>
-        <span><%= link_to 'Edit', edit_expenditure_category_path(expenditure_category), remote: true %></span> - 
-        <span><%= link_to 'Delete', expenditure_category, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <span><%= link_to 'Edit', edit_expenditure_category_path(expenditure_category), remote: true, class: "btn btn-primary" %></span> - 
+        <span><%= link_to 'Delete', expenditure_category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
         </td>
       </tr>
     <% end %>

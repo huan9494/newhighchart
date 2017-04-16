@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'dashboard/welcome'
+  get 'dashboard/graph'
+  get 'dashboard/piechart'
+  post 'dashboard/piechart'
+
 
   	devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   	resources :incomes
@@ -8,5 +11,5 @@ Rails.application.routes.draw do
   	resources :expenditures
   	resources :expenditure_categories
 
-  	root 'homepage#homepage'
+  	root 'dashboard#graph'
 end

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <head>
     <title>Newhighchart</title>
     <%= csrf_meta_tags %>
@@ -9,8 +10,8 @@
   </head>
 
   <body>
+        <%= render 'shared/header' %>
     <div class="container">
-  		<%= render 'shared/header' %>
     		<%= yield %>
     	<%= render 'shared/footer' %>
   	</div>
